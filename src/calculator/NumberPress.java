@@ -1,3 +1,10 @@
+/* NumberPress.java */
+
+/*
+ * Adam Reid
+ * February 15, 2016
+ */
+
 package calculator;
 
 import java.awt.event.*;
@@ -5,27 +12,27 @@ import javax.swing.*;
 
 public class NumberPress implements KeyListener
 {
-	private static JTextField textField;
-	
-	public NumberPress(JTextField field)
-	{
-		super();
-		textField = field;
-	}
+    private static JTextField textField;
 
-	@Override
-	public void keyTyped(KeyEvent e) 
-	{
-		if(!Character.isDigit(e.getKeyChar()))
+    public NumberPress(JTextField field)
+    {
+        super();
+        textField = field;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) 
+    {
+        if(!Character.isDigit(e.getKeyChar()))
         {
-        	e.consume();
+            e.consume();
         }
-	}
+    }
 
-	@Override
-	public void keyPressed(KeyEvent e) {}
+    @Override
+    public void keyPressed(KeyEvent e) {}
 
-	@Override
-	public void keyReleased(KeyEvent e) {}
+    @Override
+    public void keyReleased(KeyEvent e) {}
 
 }

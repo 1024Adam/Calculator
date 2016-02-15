@@ -1,13 +1,14 @@
 /* CalculatorGUI.java */
-package calculator;
-
-import java.awt.*;
-import javax.swing.*;
 
 /*
  * Adam Reid
  * February 15 2016
  */
+
+package calculator;
+
+import java.awt.*;
+import javax.swing.*;
 
 public class CalculatorGUI extends JFrame
 {
@@ -22,11 +23,7 @@ public class CalculatorGUI extends JFrame
         /* Set basic window settings */
         super();
         setSize(WIDTH, HEIGHT);
-        setTitle("Calculator");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //addWindowListener(new ExitListener());
-        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
         setLayout(new BorderLayout()); 
         
         JPanel topPanel = new JPanel();
@@ -69,12 +66,19 @@ public class CalculatorGUI extends JFrame
         JButton subtract = new JButton("-");
         JButton multiply = new JButton("x");
         JButton divide = new JButton("/");
-        
-        
+        JButton equals = new JButton("=");
+        JButton clear = new JButton("C");
+        JButton percent = new JButton("%");
+        JButton mod = new JButton("mod");
+
+        mainPanel.add(clear);
+        mainPanel.add(percent);
+        mainPanel.add(mod);
+        mainPanel.add(divide);
         mainPanel.add(button1);
         mainPanel.add(button2);
         mainPanel.add(button3);
-        mainPanel.add(add);
+        mainPanel.add(multiply);
         mainPanel.add(button4);
         mainPanel.add(button5);
         mainPanel.add(button6);
@@ -82,11 +86,11 @@ public class CalculatorGUI extends JFrame
         mainPanel.add(button7);
         mainPanel.add(button8);
         mainPanel.add(button9);
-        mainPanel.add(multiply);
+        mainPanel.add(add);
         mainPanel.add(button0);
         mainPanel.add(dot);
         mainPanel.add(plusminus);
-        mainPanel.add(divide);
+        mainPanel.add(equals);
         add(mainPanel, BorderLayout.CENTER);
 
     }

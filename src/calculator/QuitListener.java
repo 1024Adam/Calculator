@@ -1,13 +1,15 @@
 /* QuitListener.java */
+
+/*
+ * Adam Reid
+ * February 15, 2016
+ */
+
 package calculator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/*
- * Adam Reid
- * December 7, 2015
- */
 
 public class QuitListener implements ActionListener
 {
