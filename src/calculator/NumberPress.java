@@ -23,9 +23,25 @@ public class NumberPress implements KeyListener
     @Override
     public void keyTyped(KeyEvent e) 
     {
-        if(!Character.isDigit(e.getKeyChar()))
+        if(Character.isDigit(e.getKeyChar()) || e.getKeyChar() == '.')
         {
-            e.consume();
+        	e.consume();
+        	if(e.getKeyChar() == '.' && !textField.getText().contains("."))
+        	{
+        		textField.setText(textField.getText() + e.getKeyChar());
+        	}
+        	else if(e.getKeyChar() == '.' && textField.getText().contains("."))
+        	{
+        	    textField.setText(textField.getText());	
+        	}
+        	else if(textField.getText().equalsIgnoreCase("0"))
+        	{
+            	textField.setText("" + e.getKeyChar());
+        	}
+        	else
+        	{
+        		textField.setText(textField.getText() + e.getKeyChar());
+        	}
         }
     }
 

@@ -8,6 +8,9 @@
 package calculator;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.*;
 
 public class CalculatorGUI extends JFrame
@@ -44,6 +47,7 @@ public class CalculatorGUI extends JFrame
         mainField.setFont(new Font("SansSerif", Font.BOLD, 30));
         mainField.setHorizontalAlignment(JTextField.RIGHT);
         mainField.setCaretColor(Color.WHITE);
+        mainField.setText("0");
         mainField.addKeyListener(new NumberPress(mainField));
         
         topPanel.add(mainField);
@@ -71,6 +75,51 @@ public class CalculatorGUI extends JFrame
         JButton percent = new JButton("%");
         JButton mod = new JButton("mod");
 
+        button1.addActionListener(new ButtonListener(mainField));
+        button2.addActionListener(new ButtonListener(mainField));
+        button3.addActionListener(new ButtonListener(mainField));
+        button4.addActionListener(new ButtonListener(mainField));
+        button5.addActionListener(new ButtonListener(mainField));
+        button6.addActionListener(new ButtonListener(mainField));
+        button7.addActionListener(new ButtonListener(mainField));
+        button8.addActionListener(new ButtonListener(mainField));
+        button9.addActionListener(new ButtonListener(mainField));
+        button0.addActionListener(new ButtonListener(mainField));
+        dot.addActionListener(new ButtonListener(mainField));
+        plusminus.addActionListener(new ButtonListener(mainField));
+        add.addActionListener(new ButtonListener(mainField));
+        subtract.addActionListener(new ButtonListener(mainField));
+        multiply.addActionListener(new ButtonListener(mainField));
+        divide.addActionListener(new ButtonListener(mainField));
+        equals.addActionListener(new ButtonListener(mainField));
+        clear.addActionListener(new ButtonListener(mainField));
+        percent.addActionListener(new ButtonListener(mainField));
+        mod.addActionListener(new ButtonListener(mainField));
+        
+        button1.addKeyListener(new NumberPress(mainField));
+        button2.addKeyListener(new NumberPress(mainField));
+        button3.addKeyListener(new NumberPress(mainField));
+        button4.addKeyListener(new NumberPress(mainField));
+        button5.addKeyListener(new NumberPress(mainField));
+        button6.addKeyListener(new NumberPress(mainField));
+        button7.addKeyListener(new NumberPress(mainField));
+        button8.addKeyListener(new NumberPress(mainField));
+        button9.addKeyListener(new NumberPress(mainField));
+        button0.addKeyListener(new NumberPress(mainField));
+        dot.addKeyListener(new NumberPress(mainField));
+        plusminus.addKeyListener(new NumberPress(mainField));
+        add.addKeyListener(new NumberPress(mainField));
+        subtract.addKeyListener(new NumberPress(mainField));
+        multiply.addKeyListener(new NumberPress(mainField));
+        divide.addKeyListener(new NumberPress(mainField));
+        equals.addKeyListener(new NumberPress(mainField));
+        clear.addKeyListener(new NumberPress(mainField));
+        percent.addKeyListener(new NumberPress(mainField));
+        mod.addKeyListener(new NumberPress(mainField));
+
+        
+        clear.setFocusable(true);
+        
         mainPanel.add(clear);
         mainPanel.add(percent);
         mainPanel.add(mod);
@@ -92,6 +141,14 @@ public class CalculatorGUI extends JFrame
         mainPanel.add(plusminus);
         mainPanel.add(equals);
         add(mainPanel, BorderLayout.CENTER);
+        
+        addWindowListener(new WindowAdapter() 
+        {
+            public void windowOpened( WindowEvent e )
+            {
+                clear.requestFocus();
+            }
+        }); 
 
     }
 }
