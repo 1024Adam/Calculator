@@ -29,18 +29,6 @@ public class ButtonListener implements ActionListener
         {
         	field.setText("0");
         }
-		if(e.getActionCommand().equalsIgnoreCase("%"))
-        {
-        	
-        }
-        if(e.getActionCommand().equalsIgnoreCase("mod"))
-        {
-        	
-        }
-        if(e.getActionCommand().equalsIgnoreCase("/"))
-        {
-        	
-        }
         if(e.getActionCommand().equalsIgnoreCase("1"))
         {
         	if(field.getText().equalsIgnoreCase("0"))
@@ -73,10 +61,6 @@ public class ButtonListener implements ActionListener
         	{
         		field.setText(field.getText() + "3");
         	}
-        }
-        if(e.getActionCommand().equalsIgnoreCase("x"))
-        {
-        	
         }
         if(e.getActionCommand().equalsIgnoreCase("4"))
         {
@@ -111,10 +95,6 @@ public class ButtonListener implements ActionListener
         		field.setText(field.getText() + "6");
         	}
         }
-        if(e.getActionCommand().equalsIgnoreCase("-"))
-        {
-        	
-        }
         if(e.getActionCommand().equalsIgnoreCase("7"))
         {
         	if(field.getText().equalsIgnoreCase("0"))
@@ -148,10 +128,6 @@ public class ButtonListener implements ActionListener
         		field.setText(field.getText() + "9");
         	}
         }
-        if(e.getActionCommand().equalsIgnoreCase("+"))
-        {
-        	
-        }
         if(e.getActionCommand().equalsIgnoreCase("0"))
         {
         	if(!field.getText().equalsIgnoreCase("0"))
@@ -180,6 +156,36 @@ public class ButtonListener implements ActionListener
         	{
         		field.setText("-" + field.getText());
         	}
+        }
+        if(e.getActionCommand().equalsIgnoreCase("+"))
+        {
+        	Calculator.eq.setNum1(Double.parseDouble(field.getText()));
+        	Calculator.eq.setFunc('+');
+        }
+        if(e.getActionCommand().equalsIgnoreCase("-"))
+        {
+        	Calculator.eq.setNum1(Double.parseDouble(field.getText()));
+        	Calculator.eq.setFunc('-');
+        }
+        if(e.getActionCommand().equalsIgnoreCase("x"))
+        {
+        	Calculator.eq.setNum1(Double.parseDouble(field.getText()));
+        	Calculator.eq.setFunc('*');
+        }
+        if(e.getActionCommand().equalsIgnoreCase("/"))
+        {
+        	Calculator.eq.setNum1(Double.parseDouble(field.getText()));
+        	Calculator.eq.setFunc('/');
+        }
+		if(e.getActionCommand().equalsIgnoreCase("%"))
+        {
+        	Calculator.eq.setNum1(Double.parseDouble(field.getText()));
+        	Calculator.eq.setFunc('%');
+        }
+        if(e.getActionCommand().equalsIgnoreCase("mod"))
+        {
+        	Calculator.eq.setNum1(Double.parseDouble(field.getText()));
+        	Calculator.eq.setFunc('m');
         }
         if(e.getActionCommand().equalsIgnoreCase("="))
         {

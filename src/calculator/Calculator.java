@@ -9,12 +9,11 @@ package calculator;
 
 public class Calculator 
 {
+    public static Equation eq = new Equation();
+	
     public static void main(String[] args) 
     {
-    	CalculatorGUI gui = new CalculatorGUI();
-    	
-    	System.out.println(Double.parseDouble("-1.2345"));
-    	
+    	CalculatorGUI gui = new CalculatorGUI();    	
     	gui.setVisible(true);	
     }
 }
