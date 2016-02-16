@@ -21,6 +21,9 @@ public class CalculatorGUI extends JFrame
     public static final int HEIGHT = 300;
 
     public static int lastButton = 0;
+    public static int lastFunc = 0;
+    
+    public static JTextField field = new JTextField(11);
 
     /* Constructors */
     public CalculatorGUI()
@@ -45,14 +48,13 @@ public class CalculatorGUI extends JFrame
         setJMenuBar(bar);
 
         // Setup top panel        
-        JTextField mainField = new JTextField(11);
-        mainField.setFont(new Font("SansSerif", Font.BOLD, 30));
-        mainField.setHorizontalAlignment(JTextField.RIGHT);
-        mainField.setCaretColor(Color.WHITE);
-        mainField.setText("0");
-        mainField.addKeyListener(new NumberPress(mainField));
+        field.setFont(new Font("SansSerif", Font.BOLD, 30));
+        field.setHorizontalAlignment(JTextField.RIGHT);
+        field.setCaretColor(Color.WHITE);
+        field.setText("0");
+        field.addKeyListener(new NumberPress());
 
-        topPanel.add(mainField);
+        topPanel.add(field);
         add(topPanel, BorderLayout.NORTH);
 
         // Setup main panel
@@ -77,47 +79,47 @@ public class CalculatorGUI extends JFrame
         JButton percent = new JButton("%");
         JButton mod = new JButton("mod");
 
-        button1.addActionListener(new ButtonListener(mainField));
-        button2.addActionListener(new ButtonListener(mainField));
-        button3.addActionListener(new ButtonListener(mainField));
-        button4.addActionListener(new ButtonListener(mainField));
-        button5.addActionListener(new ButtonListener(mainField));
-        button6.addActionListener(new ButtonListener(mainField));
-        button7.addActionListener(new ButtonListener(mainField));
-        button8.addActionListener(new ButtonListener(mainField));
-        button9.addActionListener(new ButtonListener(mainField));
-        button0.addActionListener(new ButtonListener(mainField));
-        dot.addActionListener(new ButtonListener(mainField));
-        plusminus.addActionListener(new ButtonListener(mainField));
-        add.addActionListener(new ButtonListener(mainField));
-        subtract.addActionListener(new ButtonListener(mainField));
-        multiply.addActionListener(new ButtonListener(mainField));
-        divide.addActionListener(new ButtonListener(mainField));
-        equals.addActionListener(new ButtonListener(mainField));
-        clear.addActionListener(new ButtonListener(mainField));
-        percent.addActionListener(new ButtonListener(mainField));
-        mod.addActionListener(new ButtonListener(mainField));
+        button1.addActionListener(new ButtonListener());
+        button2.addActionListener(new ButtonListener());
+        button3.addActionListener(new ButtonListener());
+        button4.addActionListener(new ButtonListener());
+        button5.addActionListener(new ButtonListener());
+        button6.addActionListener(new ButtonListener());
+        button7.addActionListener(new ButtonListener());
+        button8.addActionListener(new ButtonListener());
+        button9.addActionListener(new ButtonListener());
+        button0.addActionListener(new ButtonListener());
+        dot.addActionListener(new ButtonListener());
+        plusminus.addActionListener(new ButtonListener());
+        add.addActionListener(new ButtonListener());
+        subtract.addActionListener(new ButtonListener());
+        multiply.addActionListener(new ButtonListener());
+        divide.addActionListener(new ButtonListener());
+        equals.addActionListener(new ButtonListener());
+        clear.addActionListener(new ButtonListener());
+        percent.addActionListener(new ButtonListener());
+        mod.addActionListener(new ButtonListener());
 
-        button1.addKeyListener(new NumberPress(mainField));
-        button2.addKeyListener(new NumberPress(mainField));
-        button3.addKeyListener(new NumberPress(mainField));
-        button4.addKeyListener(new NumberPress(mainField));
-        button5.addKeyListener(new NumberPress(mainField));
-        button6.addKeyListener(new NumberPress(mainField));
-        button7.addKeyListener(new NumberPress(mainField));
-        button8.addKeyListener(new NumberPress(mainField));
-        button9.addKeyListener(new NumberPress(mainField));
-        button0.addKeyListener(new NumberPress(mainField));
-        dot.addKeyListener(new NumberPress(mainField));
-        plusminus.addKeyListener(new NumberPress(mainField));
-        add.addKeyListener(new NumberPress(mainField));
-        subtract.addKeyListener(new NumberPress(mainField));
-        multiply.addKeyListener(new NumberPress(mainField));
-        divide.addKeyListener(new NumberPress(mainField));
-        equals.addKeyListener(new NumberPress(mainField));
-        clear.addKeyListener(new NumberPress(mainField));
-        percent.addKeyListener(new NumberPress(mainField));
-        mod.addKeyListener(new NumberPress(mainField));
+        button1.addKeyListener(new NumberPress());
+        button2.addKeyListener(new NumberPress());
+        button3.addKeyListener(new NumberPress());
+        button4.addKeyListener(new NumberPress());
+        button5.addKeyListener(new NumberPress());
+        button6.addKeyListener(new NumberPress());
+        button7.addKeyListener(new NumberPress());
+        button8.addKeyListener(new NumberPress());
+        button9.addKeyListener(new NumberPress());
+        button0.addKeyListener(new NumberPress());
+        dot.addKeyListener(new NumberPress());
+        plusminus.addKeyListener(new NumberPress());
+        add.addKeyListener(new NumberPress());
+        subtract.addKeyListener(new NumberPress());
+        multiply.addKeyListener(new NumberPress());
+        divide.addKeyListener(new NumberPress());
+        equals.addKeyListener(new NumberPress());
+        clear.addKeyListener(new NumberPress());
+        percent.addKeyListener(new NumberPress());
+        mod.addKeyListener(new NumberPress());
 
 
         clear.setFocusable(true);
@@ -152,5 +154,25 @@ public class CalculatorGUI extends JFrame
             }
         }); 
 
+    }
+    
+    public static void performEquals()
+    {
+        if(CalculatorGUI.lastButton == 0 || Calculator.eq.getNum2() == 0)
+        {
+            Calculator.eq.setNum2(Double.parseDouble(CalculatorGUI.field.getText()));
+        }
+        Calculator.eq.evaluate();
+        if(Calculator.eq.getResult() % 1 != 0)
+        {
+            CalculatorGUI.field.setText(Double.toString(Calculator.eq.getResult()));
+        }
+        else
+        {
+            CalculatorGUI.field.setText(Integer.toString((int)Calculator.eq.getResult()));
+        }
+        CalculatorGUI.lastButton = 1;
+        CalculatorGUI.lastFunc = 1;
+        Calculator.eq.setNum1(Calculator.eq.getResult());
     }
 }
