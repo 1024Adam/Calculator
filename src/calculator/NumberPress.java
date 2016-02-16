@@ -25,23 +25,23 @@ public class NumberPress implements KeyListener
     {
         if(Character.isDigit(e.getKeyChar()) || e.getKeyChar() == '.')
         {
-        	e.consume();
-        	if(e.getKeyChar() == '.' && !textField.getText().contains("."))
-        	{
-        		textField.setText(textField.getText() + e.getKeyChar());
-        	}
-        	else if(e.getKeyChar() == '.' && textField.getText().contains("."))
-        	{
-        	    textField.setText(textField.getText());	
-        	}
-        	else if(textField.getText().equalsIgnoreCase("0"))
-        	{
-            	textField.setText("" + e.getKeyChar());
-        	}
-        	else
-        	{
-        		textField.setText(textField.getText() + e.getKeyChar());
-        	}
+            e.consume();
+            if(e.getKeyChar() == '.' && !textField.getText().contains("."))
+            {
+                textField.setText(textField.getText() + e.getKeyChar());
+            }
+            else if(e.getKeyChar() == '.' && textField.getText().contains("."))
+            {
+                textField.setText(textField.getText());	
+            }
+            else if(textField.getText().equalsIgnoreCase("0"))
+            {
+                textField.setText("" + e.getKeyChar());
+            }
+            else
+            {
+                textField.setText(textField.getText() + e.getKeyChar());
+            }
         }
     }
 

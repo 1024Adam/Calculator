@@ -19,9 +19,9 @@ public class CalculatorGUI extends JFrame
 
     public static final int WIDTH = 350;
     public static final int HEIGHT = 300;
-    
+
     public static int lastButton = 0;
-    
+
     /* Constructors */
     public CalculatorGUI()
     {
@@ -30,7 +30,7 @@ public class CalculatorGUI extends JFrame
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
         setLayout(new BorderLayout()); 
-        
+
         JPanel topPanel = new JPanel();
         JPanel mainPanel = new JPanel();
 
@@ -43,7 +43,7 @@ public class CalculatorGUI extends JFrame
         file.add(quit);
         bar.add(file);
         setJMenuBar(bar);
-        
+
         // Setup top panel        
         JTextField mainField = new JTextField(11);
         mainField.setFont(new Font("SansSerif", Font.BOLD, 30));
@@ -51,10 +51,10 @@ public class CalculatorGUI extends JFrame
         mainField.setCaretColor(Color.WHITE);
         mainField.setText("0");
         mainField.addKeyListener(new NumberPress(mainField));
-        
+
         topPanel.add(mainField);
         add(topPanel, BorderLayout.NORTH);
-        
+
         // Setup main panel
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
@@ -97,7 +97,7 @@ public class CalculatorGUI extends JFrame
         clear.addActionListener(new ButtonListener(mainField));
         percent.addActionListener(new ButtonListener(mainField));
         mod.addActionListener(new ButtonListener(mainField));
-        
+
         button1.addKeyListener(new NumberPress(mainField));
         button2.addKeyListener(new NumberPress(mainField));
         button3.addKeyListener(new NumberPress(mainField));
@@ -119,9 +119,9 @@ public class CalculatorGUI extends JFrame
         percent.addKeyListener(new NumberPress(mainField));
         mod.addKeyListener(new NumberPress(mainField));
 
-        
+
         clear.setFocusable(true);
-        
+
         mainPanel.add(clear);
         mainPanel.add(percent);
         mainPanel.add(mod);
@@ -143,7 +143,7 @@ public class CalculatorGUI extends JFrame
         mainPanel.add(plusminus);
         mainPanel.add(equals);
         add(mainPanel, BorderLayout.CENTER);
-        
+
         addWindowListener(new WindowAdapter() 
         {
             public void windowOpened( WindowEvent e )
