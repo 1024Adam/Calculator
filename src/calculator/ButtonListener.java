@@ -232,7 +232,10 @@ public class ButtonListener implements ActionListener
         }
         if(e.getActionCommand().equalsIgnoreCase("="))
         {
-            Calculator.eq.setNum2(Double.parseDouble(field.getText()));
+            if(CalculatorGUI.lastButton == 0 || Calculator.eq.getNum2() == 0)
+            {
+                Calculator.eq.setNum2(Double.parseDouble(field.getText()));
+            }
             Calculator.eq.evaluate();
             if(Calculator.eq.getResult() % 1 != 0)
             {
