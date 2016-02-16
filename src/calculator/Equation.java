@@ -22,11 +22,11 @@ public class Equation
 		result = 0;
 	}
 	
-	public Equation(long num1, char function, long num2)
+	public Equation(double num1, char function, double num2)
 	{
 		this.num1 = num1;
 		this.num2 = num2;
-		if(function != '+' && function != '-' && function != '*' && function != '/' && function != '%' && function != 'm')
+		if(function != '+' && function != '-' && function != '*' && function != '/' && function != 'm')
 		{
 		    this.function = '+';
 		}
@@ -69,7 +69,14 @@ public class Equation
 	
 	public void setFunc(char newFunc)
 	{
-		this.function = newFunc;
+		if(function != '+' && function != '-' && function != '*' && function != '/' && function != 'm')
+		{
+		    this.function = '+';
+		}
+		else
+		{
+		    this.function = newFunc;
+		}
 	}
 	
 	public void evaluate()
@@ -89,10 +96,6 @@ public class Equation
 		if(function == '/')
 		{
 			this.result = num1 / num2;
-		}
-		if(function == '%')
-		{
-			this.result = num1 / 100;
 		}
 		if(function == 'm')
 		{

@@ -20,6 +20,8 @@ public class CalculatorGUI extends JFrame
     public static final int WIDTH = 350;
     public static final int HEIGHT = 300;
     
+    public static int lastButton = 0;
+    
     /* Constructors */
     public CalculatorGUI()
     {
